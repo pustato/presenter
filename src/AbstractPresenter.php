@@ -59,9 +59,10 @@ abstract class AbstractPresenter implements \ArrayAccess
     /**
      * Return array of presentable attributes.
      *
+     * @param PresentableContract $presentable
      * @return array
      */
-    abstract protected function attributes(): array;
+    abstract protected function attributes(PresentableContract $presentable): array;
 
     /**
      * Get presentable item instance.
@@ -78,7 +79,7 @@ abstract class AbstractPresenter implements \ArrayAccess
      */
     public function refresh()
     {
-        $this->attributes = $this->attributes();
+        $this->attributes = $this->attributes($this->getPresentable());
 
         return $this;
     }
@@ -93,7 +94,7 @@ abstract class AbstractPresenter implements \ArrayAccess
     public function __get($name)
     {
         if (! $this->attributes) {
-            $this->attributes = $this->attributes();
+            $this->refresh();
         }
 
         if (isset($this->attributes[$name])) {

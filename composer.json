@@ -1,6 +1,11 @@
 {
     "name": "pustato/presenter",
     "description": "Presenter pattern for PHP",
+    "keywords" : [
+      "presenter",
+      "view",
+      "php"
+    ],
     "type": "library",
     "license": "MIT",
     "authors": [

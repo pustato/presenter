@@ -33,7 +33,7 @@ class AbstractPresenterTest extends TestCase
             /**
              * {@inheritdoc}
              */
-            protected function attributes(): array
+            protected function attributes(\Pustato\Presenter\Contracts\PresentableContract $presentable): array
             {
                 return [
                     'attribute1' => 'value1',
